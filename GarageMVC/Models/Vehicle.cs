@@ -1,24 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
 
-namespace GarageSystem
+namespace GarageMVC.Models
 {
-    class Vehicle
+    public class Vehicle
     {
 
         #region Properties
+        [Key]
+        public int ID { set; get; }
+        [Required]
         public string RegNumber { set; get; }
+        public VehicleType Type { set; get; }
         public decimal ParkingPrice { set; get; }
         public DateTime ParkingDate { set; get; }
         #endregion
 
         #region Constructor
+
         public Vehicle()
         {
             ParkingDate = DateTime.Now;
         }
+ 
         #endregion
 
         #region Methods
@@ -27,6 +31,7 @@ namespace GarageSystem
         //    return this.GetType().ToString().Remove(0, 13);
         //}
 
+        /*
         public bool Equals(Vehicle other)
         {
             if(other == null) return false;
@@ -46,8 +51,9 @@ namespace GarageSystem
         {
             return this.RegNumber.GetHashCode();
         }
+         */
         #endregion
-
+   
         #region Overrides
         //public override string ToString()
         //{
@@ -56,11 +62,11 @@ namespace GarageSystem
         #endregion
     }
 
-    public enum Type
+    public enum VehicleType
     {
-        car,
-        mc,
-        bus,
-        truck
+        Car,
+        Mc,
+        Bus,
+        Truck
     }
 }
