@@ -1,9 +1,7 @@
 namespace GarageMVC.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using GarageMVC.Models;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<GarageMVC.DataAccess.GarageContext>
     {
@@ -14,21 +12,38 @@ namespace GarageMVC.Migrations
 
         protected override void Seed(GarageMVC.DataAccess.GarageContext context)
         {
-            //test COmment
-
-
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Vehicles.AddOrUpdate(
+                new Vehicle
+                {
+                    Owner = "Gudrun Rut",
+                    RegNumber = "AAA321",
+                    ParkingPlace = 1,
+                    ParkingPrice = 1,
+                    Type = VehicleType.Car
+                },
+                new Vehicle
+                {
+                    Owner = "Kalle Anka",
+                    RegNumber = "ABC311",
+                    ParkingPlace = 2,
+                    ParkingPrice = 1,
+                    Type = VehicleType.Bus
+                },
+                new Vehicle
+                {
+                    Owner = "Drudrik von Money",
+                    RegNumber = "EBA031",
+                    ParkingPrice = 0.5M,
+                    Type = VehicleType.Mc
+                },
+                new Vehicle
+                {
+                    Owner = "Albert Einstein",
+                    RegNumber = "ETA452",
+                    ParkingPrice = 3.5M,
+                    Type = VehicleType.Truck
+                }
+            );
         }
     }
 }

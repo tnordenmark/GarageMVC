@@ -28,3 +28,5 @@ C:\Users\elev\Documents\Visual Studio 2013\Projects\TestGit\GarageMVC\GarageMVC\
 C:\Users\elev\Documents\Visual Studio 2013\Projects\TestGit\GarageMVC\GarageMVC\obj\Debug\GarageMVC.csprojResolveAssemblyReference.cache
 C:\Users\elev\Documents\Visual Studio 2013\Projects\TestGit\GarageMVC\GarageMVC\obj\Debug\GarageMVC.dll
 C:\Users\elev\Documents\Visual Studio 2013\Projects\TestGit\GarageMVC\GarageMVC\obj\Debug\GarageMVC.pdb
+C:\Users\elev\Documents\Visual Studio 2013\Projects\TestGit\GarageMVC\GarageMVC\obj\Debug\GarageMVC.Migrations.Initial.resources
+C:\Users\elev\Documents\Visual Studio 2013\Projects\TestGit\GarageMVC\GarageMVC\obj\Debug\GarageMVC.csproj.GenerateResource.Cache

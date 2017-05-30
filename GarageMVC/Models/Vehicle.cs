@@ -12,7 +12,9 @@ namespace GarageMVC.Models
         [Required]
         [StringLength(6)]
         public string RegNumber { set; get; }
+        public string Owner { set; get; }
         public VehicleType Type { set; get; }
+        public int ParkingPlace { set; get; }
         public decimal ParkingPrice { set; get; }
         public DateTime ParkingDate { set; get; }
         #endregion
