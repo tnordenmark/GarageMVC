@@ -4,24 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GarageMVC.Repository;
+using GarageMVC.Models;
 
 namespace GarageMVC.Controllers
 {
     public class GarageController : Controller
     {
-        GarageController garage = new GarageController();
-
+        GarageRepository garage = new GarageRepository();
+  
         // GET: Garage
         public ActionResult Index()
         {
-            
-            return View();
+            return View(garage.GetAll());
         }
 
         // GET: Garage/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(garage.GetVehicle());
         }
 
         // GET: Garage/Create

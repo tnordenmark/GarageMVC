@@ -169,9 +169,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Garage\About.cshtml" />
-    <Content Include="Views\Garage\Contact.cshtml" />
     <Content Include="Views\Garage\Index.cshtml" />
+    <Content Include="Views\Garage\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
