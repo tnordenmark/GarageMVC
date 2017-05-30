@@ -10,6 +10,7 @@ namespace GarageMVC.Models
         [Key]
         public int ID { set; get; }
         [Required]
+        [StringLength(6)]
         public string RegNumber { set; get; }
         public VehicleType Type { set; get; }
         public decimal ParkingPrice { set; get; }
