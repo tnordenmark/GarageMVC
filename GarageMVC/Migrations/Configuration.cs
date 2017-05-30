@@ -1,7 +1,10 @@
 namespace GarageMVC.Migrations
 {
     using GarageMVC.Models;
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<GarageMVC.DataAccess.GarageContext>
     {
@@ -17,34 +20,34 @@ namespace GarageMVC.Migrations
                 {
                     Owner = "Gudrun Rut",
                     RegNumber = "AAA321",
-                    ParkingPlace = 1,
                     ParkingPrice = 1,
+                    ParkingPlace = 1,
                     Type = VehicleType.Car
                 },
                 new Vehicle
                 {
                     Owner = "Kalle Anka",
                     RegNumber = "ABC311",
+                    ParkingPrice = 2,
                     ParkingPlace = 2,
-                    ParkingPrice = 2.5M,
                     Type = VehicleType.Bus
                 },
                 new Vehicle
                 {
                     Owner = "Drudrik von Money",
                     RegNumber = "EBA031",
+                    ParkingPrice = 0.45M,
                     ParkingPlace = 3,
-                    ParkingPrice = 0.5M,
                     Type = VehicleType.Mc
                 },
                 new Vehicle
                 {
-                    Owner = "Albert Einstein",
-                    RegNumber = "ETA452",
-                    ParkingPlace = 4,
+                    Owner = "Albert Einstine",
+                    RegNumber = "FBI132",
                     ParkingPrice = 3.5M,
+                    ParkingPlace = 4,
                     Type = VehicleType.Truck
-                }
+                }                
             );
         }
     }
