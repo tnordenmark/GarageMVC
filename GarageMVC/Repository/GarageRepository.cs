@@ -30,6 +30,28 @@ namespace GarageMVC.Repository
                 db.SaveChanges();
             }
         }
+        //GET all vehicles from database
+        public List<Models.Vehicle> GetAll()
+        {
+            return db.Vehicles.ToList();
+        }
+        //GET specific vehicle from database
+        public Models.Vehicle GetVehicle(string regNr)
+        {
+            return db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
+        }
+        public Models.Vehicle GetVehicle(int pPlace)
+        {
+            return db.Vehicles.Where(v => v.ParkingPlace == pPlace).FirstOrDefault();
+        }
+        //Edit a vehicle
+        public void Edit(Models.Vehicle vehicle)
+        {
+            //Edits the element without removing and inserting it
+            db.Entry(vehicle).State = EntityState.Modified; 
+            //Saves the new Data in the Database
+            db.SaveChanges();
+        }
         //Remove vehicle from database and return vehicle information
         public Models.Vehicle Delete(int pPlace)
         {
