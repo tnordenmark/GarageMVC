@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarageMVC", "GarageMVC\GarageMVC.csproj", "{363A8DB6-C34B-4DB1-AF9F-0BF0515259E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarageMVC.Tests", "GarageMVC.Tests\GarageMVC.Tests.csproj", "{870ED778-E18A-4907-904E-D766E3C45244}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{363A8DB6-C34B-4DB1-AF9F-0BF0515259E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{363A8DB6-C34B-4DB1-AF9F-0BF0515259E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{363A8DB6-C34B-4DB1-AF9F-0BF0515259E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{363A8DB6-C34B-4DB1-AF9F-0BF0515259E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870ED778-E18A-4907-904E-D766E3C45244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870ED778-E18A-4907-904E-D766E3C45244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870ED778-E18A-4907-904E-D766E3C45244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870ED778-E18A-4907-904E-D766E3C45244}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
