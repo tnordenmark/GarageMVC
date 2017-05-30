@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GarageMVC.Repository;
 
 namespace GarageMVC.Controllers
 {
     public class GarageController : Controller
     {
+        GarageController garage = new GarageController();
+
         // GET: Garage
         public ActionResult Index()
         {
+            
             return View();
         }
 
