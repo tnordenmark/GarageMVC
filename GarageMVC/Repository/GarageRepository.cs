@@ -59,10 +59,10 @@ namespace GarageMVC.Repository
             db.SaveChanges();
         }
         //Remove vehicle from database and return vehicle information
-        public Models.Vehicle Remove(int pPlace)
+        public Models.Vehicle Remove(int id)
         {
             Models.Vehicle vehicle;
-            vehicle = db.Vehicles.Where(v => v.ParkingPlace == pPlace).FirstOrDefault();
+            vehicle = db.Vehicles.Where(v => v.ID == id).FirstOrDefault();
             if (vehicle != null)
             {
                 System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
