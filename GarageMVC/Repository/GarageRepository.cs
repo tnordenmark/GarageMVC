@@ -1,4 +1,5 @@
 ﻿using GarageMVC.DataAccess;
+using GarageMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -31,7 +32,7 @@ namespace GarageMVC.Repository
             }
         }
         //GET all vehicles from database
-        public List<Models.Vehicle> GetAll()
+        public List<Vehicle> GetAll()
         {
             return db.Vehicles.ToList();
         }
@@ -53,7 +54,7 @@ namespace GarageMVC.Repository
             db.SaveChanges();
         }
         //Remove vehicle from database and return vehicle information
-        public Models.Vehicle Delete(int pPlace)
+        public Models.Vehicle Remove(int pPlace)
         {
             Models.Vehicle vehicle;
             vehicle = db.Vehicles.Where(v => v.ParkingPlace == pPlace).FirstOrDefault();
@@ -67,7 +68,7 @@ namespace GarageMVC.Repository
             }
             return vehicle;
         }
-        public Models.Vehicle Delete(string regNr)
+        public Models.Vehicle Remove(string regNr)
         {
             Models.Vehicle vehicle;
             vehicle = db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
@@ -81,5 +82,21 @@ namespace GarageMVC.Repository
             }
             return vehicle;
         }
-    }
+        //Search vehicle(s)
+        public List<Models.Vehicle> Search(string searchTerm)
+        {
+            int pSlot = -1;
+
+            //Try to parse the input string to double, if it works, the user want to search for price
+            try
+            {
+                pSlot = int.Parse(searchTerm);
+            }
+            catch //If the parse didin't work it might be a name, category or article number so return a list containing either of those
+            {
+                return db.Items.Where(item => item.Name.Contains(searchTerm) || item.ArticleNumber == searchTerm || item.Category.ToString().Contains(searchTerm)).ToList();
+            }
+            return db.Items.Where(item => item.Price == number).ToList(); //try succeeded so let's return a list based on price
+        }
+   }
 }
