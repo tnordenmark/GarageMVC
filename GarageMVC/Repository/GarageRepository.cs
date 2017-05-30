@@ -1,6 +1,5 @@
 ﻿using GarageMVC.DataAccess;
 using GarageMVC.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -31,6 +30,7 @@ namespace GarageMVC.Repository
                 db.SaveChanges();
             }
         }
+        #region Get Vehicle(s)
         //GET all vehicles from database
         public List<Vehicle> GetAll()
         {
@@ -45,6 +45,12 @@ namespace GarageMVC.Repository
         {
             return db.Vehicles.Where(v => v.ParkingPlace == pPlace).FirstOrDefault();
         }
+        //GET filtered vehicle list
+        public List<Vehicle> GetFilteredList(VehicleType type)
+        {
+            return db.Vehicles.Where(vehicle => vehicle.Type == type).ToList();
+        }
+        #endregion
         //Edit a vehicle
         public void Edit(Models.Vehicle vehicle)
         {
@@ -60,7 +66,7 @@ namespace GarageMVC.Repository
             vehicle = db.Vehicles.Where(v => v.ParkingPlace == pPlace).FirstOrDefault();
             if (vehicle != null)
             {
-                TimeSpan tspan = DateTime.Now - vehicle.ParkingDate;
+                System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
                 vehicle.ParkingPrice = vehicle.ParkingPrice * (tspan.Minutes);
 
                 db.Vehicles.Remove(vehicle);
@@ -74,7 +80,7 @@ namespace GarageMVC.Repository
             vehicle = db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
             if (vehicle != null)
             {
-                TimeSpan tspan = DateTime.Now - vehicle.ParkingDate;
+                System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
                 vehicle.ParkingPrice = vehicle.ParkingPrice * (tspan.Minutes);
 
                 db.Vehicles.Remove(vehicle);
@@ -94,9 +100,9 @@ namespace GarageMVC.Repository
             }
             catch //If the parse didin't work it might be a name, category or article number so return a list containing either of those
             {
-                return db.Items.Where(item => item.Name.Contains(searchTerm) || item.ArticleNumber == searchTerm || item.Category.ToString().Contains(searchTerm)).ToList();
+                return db.Vehicles.Where(vehicle => vehicle.Owner.Contains(searchTerm) || vehicle.RegNumber == searchTerm).ToList();
             }
-            return db.Items.Where(item => item.Price == number).ToList(); //try succeeded so let's return a list based on price
+            return db.Vehicles.Where(vehicle => vehicle.ParkingPlace == pSlot).ToList();
         }
    }
 }
