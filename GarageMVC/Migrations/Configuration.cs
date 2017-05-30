@@ -14,6 +14,9 @@ namespace GarageMVC.Migrations
 
         protected override void Seed(GarageMVC.DataAccess.GarageContext context)
         {
+            //test COmment
+
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
