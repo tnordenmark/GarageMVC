@@ -36,14 +36,13 @@ namespace GarageMVC.Repository
         {
             return db.Vehicles.ToList();
         }
-        //GET specific vehicle from database
         public Models.Vehicle GetVehicle(string regNr)
         {
             return db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
         }
-        public Models.Vehicle GetVehicle(int pPlace)
+        public Models.Vehicle GetVehicle(int id)
         {
-            return db.Vehicles.Where(v => v.ParkingPlace == pPlace).FirstOrDefault();
+            return db.Vehicles.Where(v => v.ID == id).FirstOrDefault();
         }
         //GET filtered vehicle list
         public List<Vehicle> GetFilteredList(VehicleType type)
