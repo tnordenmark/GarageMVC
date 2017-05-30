@@ -26,13 +26,14 @@ namespace GarageMVC.Migrations
                     Owner = "Kalle Anka",
                     RegNumber = "ABC311",
                     ParkingPlace = 2,
-                    ParkingPrice = 1,
+                    ParkingPrice = 2.5M,
                     Type = VehicleType.Bus
                 },
                 new Vehicle
                 {
                     Owner = "Drudrik von Money",
                     RegNumber = "EBA031",
+                    ParkingPlace = 3,
                     ParkingPrice = 0.5M,
                     Type = VehicleType.Mc
                 },
@@ -40,6 +41,7 @@ namespace GarageMVC.Migrations
                 {
                     Owner = "Albert Einstein",
                     RegNumber = "ETA452",
+                    ParkingPlace = 4,
                     ParkingPrice = 3.5M,
                     Type = VehicleType.Truck
                 }
