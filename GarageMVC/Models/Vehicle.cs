@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GarageMVC.Models
 {
@@ -8,6 +9,7 @@ namespace GarageMVC.Models
 
         #region Properties
         [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { set; get; }
         [Required]
         [StringLength(6)]
