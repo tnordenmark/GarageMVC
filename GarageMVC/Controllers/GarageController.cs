@@ -11,7 +11,7 @@ namespace GarageMVC.Controllers
     public class GarageController : Controller
     {
         GarageRepository garage = new GarageRepository();
-  
+
         // GET: Garage
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace GarageMVC.Controllers
         // GET: Garage/Details/5
         public ActionResult Details(int id)
         {
-            return View(garage.GetVehicle());
+            return View(garage.GetVehicle(id));
         }
 
         // GET: Garage/Create
@@ -32,18 +32,11 @@ namespace GarageMVC.Controllers
 
         // POST: Garage/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Models.Vehicle vehicle)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            garage.Add(vehicle);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Garage/Edit/5
@@ -71,23 +64,14 @@ namespace GarageMVC.Controllers
         // GET: Garage/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(garage.Remove(id));
         }
 
         // POST: Garage/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+            
+        //}
     }
 }
