@@ -1701,7 +1701,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-control:-moz-placeholder {
-  color: #999999;
+    color: #b94a48;
+  /*color: #999999;*/
 }
 
 .form-control::-moz-placeholder {

@@ -10,7 +10,7 @@ namespace GarageMVC.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(GarageMVC.DataAccess.GarageContext context)
@@ -47,7 +47,7 @@ namespace GarageMVC.Migrations
                     ParkingPrice = 3.5M,
                     ParkingPlace = 4,
                     Type = VehicleType.Truck
-                }                
+                }
             );
         }
     }

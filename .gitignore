@@ -287,3 +287,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/GarageMVC/Migrations/201705310854300_Initial.cs
+/GarageMVC/Migrations/201705310854300_Initial.Designer.cs
+/GarageMVC/Migrations/201705310854300_Initial.resx
+/GarageMVC/Content/Custom_css/Custom_StyleSheet.css
+/GarageMVC/Content/Custom_css/Custom_Menu.css
