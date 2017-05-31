@@ -68,6 +68,7 @@ namespace GarageMVC.Controllers
             return View(garage.Remove(id));
         }
 
+
         // POST: Garage/Delete/5
         //[HttpPost]
         //public ActionResult Delete(int id)
