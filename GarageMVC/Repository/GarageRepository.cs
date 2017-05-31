@@ -15,34 +15,46 @@ namespace GarageMVC.Repository
         }
 
         //Add a vehicle to database
-        public void Add(Models.Vehicle vehicle)
+        public bool Add(Models.Vehicle vehicle)
         {
+            bool exists = false;
             if (vehicle != null)
             {
-                int index=1;
+                int index = 1;
                 bool checking = true;
-                foreach(var v in SortParking(false))
+
+                foreach (var v in db.Vehicles)
                 {
-                    if (index!=v.ParkingPlace && checking==true)
+                    if (v.RegNumber == vehicle.RegNumber)
+                    {
+                        exists = true;
+                    }
+                }
+                if (exists == false)
+                {
+                    foreach (var v in SortParking(false))
+                    {
+                        if (index != v.ParkingPlace && checking == true)
+                        {
+                            vehicle.ParkingPlace = index;
+                            checking = false;
+                        }
+                        index++;
+                    }
+                    if (vehicle.ParkingPlace == 0)
                     {
                         vehicle.ParkingPlace = index;
-                        checking = false;
                     }
+                    if (vehicle.Type == Models.VehicleType.Car) { vehicle.ParkingPrice = 1; }
+                    else if (vehicle.Type == Models.VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
+                    else if (vehicle.Type == Models.VehicleType.Truck) { vehicle.ParkingPrice = 3.5M; }
+                    else if (vehicle.Type == Models.VehicleType.Bus) { vehicle.ParkingPrice = 2.5M; }
 
-                    index++;
+                    db.Vehicles.Add(vehicle);
+                    db.SaveChanges();
                 }
-                if(vehicle.ParkingPlace==0)
-                {
-                    vehicle.ParkingPlace = index;
-                }
-                if (vehicle.Type == Models.VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                else if (vehicle.Type == Models.VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                else if (vehicle.Type == Models.VehicleType.Truck) { vehicle.ParkingPrice = 3.5M; }
-                else if (vehicle.Type == Models.VehicleType.Bus) { vehicle.ParkingPrice = 2.5M; }
-               
-                db.Vehicles.Add(vehicle);
-                db.SaveChanges();
             }
+            return exists;
         }
         #region Get Vehicle(s)
         //GET all vehicles from database
