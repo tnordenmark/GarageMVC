@@ -12,11 +12,12 @@ namespace GarageMVC.Controllers
     {
         GarageRepository garage = new GarageRepository();
         // GET: Garage
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(string Search="")
         {
             //Update the ParkPrice to current price
             garage.UpdateParkPrice();
-            return View(garage.GetAll());
+            return View(garage.Search(Search));
         }
 
         // GET: Garage/Details/5
@@ -75,11 +76,5 @@ namespace GarageMVC.Controllers
         //{
             
         //}
-
-        public ActionResult NameSearch(string name)
-        {
-            var searchItem = garage.Search(name);
-            return View(searchItem);
-        }
     }
 }

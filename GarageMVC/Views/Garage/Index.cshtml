@@ -6,9 +6,9 @@
 
 <h2>Vehicle List</h2>
 <p>Search with Articlnumber, Price witha comma or just a product name.</p>
-<form class="glyphicon glyphicon-search" id="frmsearch" action="~/Garage/NameSearch" method="get">
-    <input type="text" name="name" @*placeholder="Write here for search"*@ />
-    <input class="btn btn-primary" id="submit" name="name" type="submit" style="font-weight:bold;" value="Search" />
+<form class="glyphicon glyphicon-search" method="get">
+    <input type="text" name="Search" placeholder="Search" />
+    <input class="btn btn-primary" id="submit" name="Search" type="submit" style="font-weight:bold;" value="Search" />
 </form>
 <p>
     @*@Html.ActionLink("Check in Vehicle", "Create")*@
