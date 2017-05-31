@@ -15,6 +15,8 @@ namespace GarageMVC.Controllers
         // GET: Garage
         public ActionResult Index()
         {
+            //Update the ParkPrice to current price
+            garage.UpdateParkPrice();
             return View(garage.GetAll());
         }
 
