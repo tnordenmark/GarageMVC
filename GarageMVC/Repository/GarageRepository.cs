@@ -17,13 +17,13 @@ namespace GarageMVC.Repository
         //Add a vehicle to database
         public void Add(Models.Vehicle vehicle)
         {
-            if (vehicle != null)
+            if(vehicle != null)
             {
-                int index=1;
+                int index = 1;
                 bool checking = true;
                 foreach(var v in SortParking(false))
                 {
-                    if (index!=v.ParkingPlace && checking==true)
+                    if(index != v.ParkingPlace && checking == true)
                     {
                         vehicle.ParkingPlace = index;
                         checking = false;
@@ -31,15 +31,15 @@ namespace GarageMVC.Repository
 
                     index++;
                 }
-                if(vehicle.ParkingPlace==0)
+                if(vehicle.ParkingPlace == 0)
                 {
                     vehicle.ParkingPlace = index;
                 }
-                if (vehicle.Type == Models.VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                else if (vehicle.Type == Models.VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                else if (vehicle.Type == Models.VehicleType.Truck) { vehicle.ParkingPrice = 3.5M; }
-                else if (vehicle.Type == Models.VehicleType.Bus) { vehicle.ParkingPrice = 2.5M; }
-               
+                if(vehicle.Type == Models.VehicleType.Car) { vehicle.ParkingPrice = 1; }
+                else if(vehicle.Type == Models.VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
+                else if(vehicle.Type == Models.VehicleType.Truck) { vehicle.ParkingPrice = 3.5M; }
+                else if(vehicle.Type == Models.VehicleType.Bus) { vehicle.ParkingPrice = 2.5M; }
+
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
             }
@@ -70,14 +70,14 @@ namespace GarageMVC.Repository
             {
                 return db.Vehicles.OrderByDescending(v => v.ParkingPlace).ToList();
             }
-            return db.Vehicles.OrderBy(v=>v.ParkingPlace).ToList();
+            return db.Vehicles.OrderBy(v => v.ParkingPlace).ToList();
         }
         #endregion
         //Edit a vehicle
         public void Edit(Models.Vehicle vehicle)
         {
             //Edits the element without removing and inserting it
-            db.Entry(vehicle).State = EntityState.Modified; 
+            db.Entry(vehicle).State = EntityState.Modified;
             //Saves the new Data in the Database
             db.SaveChanges();
         }
@@ -87,9 +87,9 @@ namespace GarageMVC.Repository
             foreach(var vehicle in db.Vehicles)
             {
                 //reset the parkingPrice to it's default values
-                if (vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                else if (vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                else if (vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
+                if(vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
+                else if(vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
+                else if(vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
                 else { vehicle.ParkingPrice = 3.50M; }
                 //Calculate the timespan and than update the cost
                 System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
@@ -102,12 +102,12 @@ namespace GarageMVC.Repository
         {
             Models.Vehicle vehicle;
             vehicle = db.Vehicles.Where(v => v.ID == id).FirstOrDefault();
-            if (vehicle != null)
+            if(vehicle != null)
             {
                 //reset the parkingPrice to it's default values
-                if (vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                else if (vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                else if (vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
+                if(vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
+                else if(vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
+                else if(vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
                 else { vehicle.ParkingPrice = 3.50M; }
                 //Get Current ParkingPrice
                 System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
@@ -122,12 +122,12 @@ namespace GarageMVC.Repository
         {
             Models.Vehicle vehicle;
             vehicle = db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
-            if (vehicle != null)
+            if(vehicle != null)
             {
                 //reset the parkingPrice to it's default values
-                if (vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                else if (vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                else if (vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
+                if(vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
+                else if(vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
+                else if(vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
                 else { vehicle.ParkingPrice = 3.50M; }
                 //Get Current ParkingPrice
                 System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
@@ -155,5 +155,5 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.Where(vehicle => vehicle.ParkingPlace == pSlot).ToList();
         }
-   }
+    }
 }
