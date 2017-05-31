@@ -71,9 +71,21 @@ namespace GarageMVC.Repository
             return db.Vehicles.Where(v => v.ID == id).FirstOrDefault();
         }
         //GET filtered vehicle list
-        public List<Vehicle> GetFilteredList(VehicleType type)
+        public List<Vehicle> GetFilteredList(string type)
         {
-            return db.Vehicles.Where(vehicle => vehicle.Type == type).ToList();
+            if(type=="Car")
+            {
+                return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Car).ToList();
+            }
+            else if(type=="Bus")
+            {
+                return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Bus).ToList();
+            }
+            else if(type=="Mc")
+            {
+                return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Mc).ToList();
+            }
+            return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Truck).ToList();
         }
         //GET Sorted Lists
         public List<Vehicle> SortParking(bool descend)

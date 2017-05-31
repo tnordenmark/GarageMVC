@@ -13,16 +13,20 @@ namespace GarageMVC.Controllers
         GarageRepository garage = new GarageRepository();
         // GET: Garage
         [HttpGet]
-        public ActionResult Index(string Search="")
+        public ActionResult Index(string Search="",string Filter="")
         {
-            //Update the ParkPrice to current price
-            garage.UpdateParkPrice();
+            if(Filter=="Car" || Filter=="Bus" || Filter=="Truck" || Filter=="Mc")
+            {
+                return View(garage.GetFilteredList(Filter));
+            }
             return View(garage.Search(Search));
         }
 
         // GET: Garage/Details/5
         public ActionResult Details(int id)
         {
+            //Update the ParkPrice to current price
+            garage.UpdateParkPrice();
             return View(garage.GetVehicle(id));
         }
 
