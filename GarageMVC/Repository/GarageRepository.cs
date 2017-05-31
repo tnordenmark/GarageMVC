@@ -156,7 +156,8 @@ namespace GarageMVC.Repository
         {
             int pSlot = -1;
 
-            //Try to parse the input string to double, if it works, the user want to search for price
+            // Try to parse the input string to double,
+            // if it works, the user want to search by parking slot
             try
             {
                 pSlot = int.Parse(searchTerm);
