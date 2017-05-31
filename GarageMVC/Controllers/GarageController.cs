@@ -11,7 +11,6 @@ namespace GarageMVC.Controllers
     public class GarageController : Controller
     {
         GarageRepository garage = new GarageRepository();
-
         // GET: Garage
         public ActionResult Index()
         {
