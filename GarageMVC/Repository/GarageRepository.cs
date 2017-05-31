@@ -19,8 +19,22 @@ namespace GarageMVC.Repository
         {
             if (vehicle != null)
             {
-                vehicle.ParkingPlace = db.Vehicles.Count();
+                int index=1;
+                bool checking = true;
+                foreach(var v in SortParking(false))
+                {
+                    if (index!=v.ParkingPlace && checking==true)
+                    {
+                        vehicle.ParkingPlace = index;
+                        checking = false;
+                    }
 
+                    index++;
+                }
+                if(vehicle.ParkingPlace==0)
+                {
+                    vehicle.ParkingPlace = index;
+                }
                 if (vehicle.Type == Models.VehicleType.Car) { vehicle.ParkingPrice = 1; }
                 else if (vehicle.Type == Models.VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
                 else if (vehicle.Type == Models.VehicleType.Truck) { vehicle.ParkingPrice = 3.5M; }
@@ -48,6 +62,15 @@ namespace GarageMVC.Repository
         public List<Vehicle> GetFilteredList(VehicleType type)
         {
             return db.Vehicles.Where(vehicle => vehicle.Type == type).ToList();
+        }
+        //GET Sorted Lists
+        public List<Vehicle> SortParking(bool descend)
+        {
+            if(descend)
+            {
+                return db.Vehicles.OrderByDescending(v => v.ParkingPlace).ToList();
+            }
+            return db.Vehicles.OrderBy(v=>v.ParkingPlace).ToList();
         }
         #endregion
         //Edit a vehicle
@@ -126,7 +149,7 @@ namespace GarageMVC.Repository
             {
                 pSlot = int.Parse(searchTerm);
             }
-            catch //If the parse didin't work it might be a name, category or article number so return a list containing either of those
+            catch
             {
                 return db.Vehicles.Where(vehicle => vehicle.Owner.Contains(searchTerm) || vehicle.RegNumber == searchTerm).ToList();
             }
