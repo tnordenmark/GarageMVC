@@ -74,5 +74,11 @@ namespace GarageMVC.Controllers
         //{
             
         //}
+
+        public ActionResult NameSearch(string name)
+        {
+            var searchItem = garage.Search(name);
+            return View(searchItem);
+        }
     }
 }
