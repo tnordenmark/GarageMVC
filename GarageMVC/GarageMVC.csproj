@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -122,9 +123,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705301042000_Initial.cs" />
-    <Compile Include="Migrations\201705301042000_Initial.Designer.cs">
-      <DependentUpon>201705301042000_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201705310854300_Initial.cs" />
+    <Compile Include="Migrations\201705310854300_Initial.Designer.cs">
+      <DependentUpon>201705310854300_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +139,11 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom_css\Custom_Menu.css" />
+    <Content Include="Content\Custom_css\Custom_StyleSheet.css" />
+    <Content Include="Content\Images\2.png" />
+    <Content Include="Content\Images\etwe.gif" />
+    <Content Include="Content\Images\rwer.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -180,10 +186,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705301042000_Initial.resx">
-      <DependentUpon>201705301042000_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705310854300_Initial.resx">
+      <DependentUpon>201705310854300_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

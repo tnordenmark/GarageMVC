@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<GarageMVC.Models.Vehicle>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search";
 }
 
-<h2>Index</h2>
+<h2>Vehicle List</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Check in Vehicle", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -23,12 +23,12 @@
         <th>
             @Html.DisplayNameFor(model => model.ParkingPlace)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.ParkingPrice)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ParkingDate)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -46,16 +46,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.ParkingPlace)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.ParkingPrice)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ParkingDate)
-        </td>
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("CheckOut", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
