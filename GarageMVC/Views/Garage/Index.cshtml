@@ -26,16 +26,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RegNumber)
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" />
+            </form>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Owner)
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" />
+            </form>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" />
+            </form>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ParkingPlace)
+            <form>
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" />
+            </form>
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.ParkingPrice)

@@ -96,6 +96,38 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.OrderBy(v=>v.ParkingPlace).ToList();
         }
+        public List<Vehicle> SortOwner(bool descend)
+        {
+            if (descend)
+            {
+                return db.Vehicles.OrderByDescending(v => v.Owner).ToList();
+            }
+            return db.Vehicles.OrderBy(v => v.Owner).ToList();
+        }
+        public List<Vehicle> SortDate(bool descend)
+        {
+            if (descend)
+            {
+                return db.Vehicles.OrderByDescending(v => v.ParkingDate).ToList();
+            }
+            return db.Vehicles.OrderBy(v => v.ParkingDate).ToList();
+        }
+        public List<Vehicle> SortReg(bool descend)
+        {
+            if (descend)
+            {
+                return db.Vehicles.OrderByDescending(v => v.RegNumber).ToList();
+            }
+            return db.Vehicles.OrderBy(v => v.RegNumber).ToList();
+        }
+        public List<Vehicle> SortType(bool descend)
+        {
+            if (descend)
+            {
+                return db.Vehicles.OrderByDescending(v => v.Type).ToList();
+            }
+            return db.Vehicles.OrderBy(v => v.Type).ToList();
+        }
         #endregion
         //Edit a vehicle
         public void Edit(Models.Vehicle vehicle)
