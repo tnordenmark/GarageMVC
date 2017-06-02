@@ -11,14 +11,29 @@ namespace GarageMVC.Controllers
     public class GarageController : Controller
     {
         GarageRepository garage = new GarageRepository();
+
         // GET: Garage
-        [HttpGet]
-        public ActionResult Index(string Search="")
+        //[HttpGet]
+        //public ActionResult Index(string Search="")
+        //{
+        //    return View(garage.Search(Search));
+        //}
+
+        
+        public ActionResult Index(string sortOrder)
         {
-            return View(garage.Search(Search));
+            ViewBag.RegSortParm = sortOrder == "RegNumber" ? "RegNumber_asc" : "RegNumber";
+            ViewBag.OwnerSortParm = String.IsNullOrEmpty(sortOrder) ? "Owner_asc" : "";
+            ViewBag.TypeSortParm = sortOrder == "Type" ? "type_asc" : "Type";
+            ViewBag.PlaceSortParm = sortOrder == "ParkingPlace" ? "ParkingPlace_asc" : "ParkingPlace";
+
+            var result = garage.SortItem(sortOrder);
+            return View(result);
         }
+
         [HttpPost]
-        public ActionResult Index(string Sort="",string Filter="")
+        //public ActionResult Index(string Sort = "", string Filter = "")
+                    public ActionResult Index(string Sort = "", string Filter = "")
         {
             if (Filter == "Car" || Filter == "Bus" || Filter == "Truck" || Filter == "Mc")
             {
@@ -43,6 +58,7 @@ namespace GarageMVC.Controllers
             }
             return RedirectToAction("Index");
         }
+
         // GET: Garage/Details/5
         public ActionResult Details(int id)
         {

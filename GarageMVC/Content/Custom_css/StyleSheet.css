@@ -9,7 +9,7 @@
 }
     
 
-input[type="submit"]{
+input[name="vehicleType"]{
     width: 100%;
     width: 80px;
     background-color: darkslategrey;
@@ -19,7 +19,7 @@ input[type="submit"]{
     color: white;
 }
 
-input[type="submit"]:hover {
+input[name="vehicleType"]:hover {
     background-color: green;
 }
 
@@ -112,7 +112,7 @@ h1 {
     margin-left: 25%;
     float: left;
     width: 60%;
-    height 10%;
+    height: 10%;
     padding: 0;
 }
 

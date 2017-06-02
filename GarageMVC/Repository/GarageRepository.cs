@@ -212,5 +212,32 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.Where(vehicle => vehicle.ParkingPlace == pSlot).ToList();
         }
+
+        public IEnumerable<Vehicle> SortItem(string sortOrder)
+        {
+            var sortItem = from i in db.Vehicles
+                           select i;
+
+            switch (sortOrder)
+            {
+                case "RegNumber":
+                    sortItem = sortItem.OrderBy(i => i.RegNumber);
+                    break;
+                case "Owner":
+                    sortItem = sortItem.OrderBy(i => i.Owner);
+                    break;
+                case "Type":
+                    sortItem = sortItem.OrderBy(i => i.Type);
+                    break;
+                case "ParkingPlace":
+                    sortItem = sortItem.OrderBy(i => i.ParkingPlace);
+                    break;
+                default:
+                    sortItem = sortItem.OrderBy(i => i.RegNumber);
+                    break;
+            }
+
+            return sortItem.ToList();
+        }
    }
 }
