@@ -123,9 +123,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705311337261_Initial.cs" />
-    <Compile Include="Migrations\201705311337261_Initial.Designer.cs">
-      <DependentUpon>201705311337261_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201706010455158_initial.cs" />
+    <Compile Include="Migrations\201706010455158_initial.Designer.cs">
+      <DependentUpon>201706010455158_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,11 +139,11 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Custom_css\Custom_Menu.css" />
-    <Content Include="Content\Custom_css\Custom_StyleSheet.css" />
+    <Content Include="Content\Custom_css\Menu.css" />
     <Content Include="Content\Images\2.png" />
     <Content Include="Content\Images\etwe.gif" />
     <Content Include="Content\Images\rwer.png" />
+    <Content Include="Content\Custom_css\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -187,8 +187,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705311337261_Initial.resx">
-      <DependentUpon>201705311337261_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706010455158_initial.resx">
+      <DependentUpon>201706010455158_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

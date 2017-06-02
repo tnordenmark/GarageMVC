@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Gruppen med 3 deltagare</title>
     @Styles.Render("~/Content/css")
-    @*@Styles.Render("~/Content/Custom_css/css")*@
+    @Styles.Render("~/Content/Custom_css/StyleSheet.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -28,11 +28,14 @@
             </div>
         </div>
     </div>
+    <div class="my_container">
+        <img src="~/Content/Images/2.png" alt="Mountain View" style="width:284px;height:208px;" class="img-responsive">
+    </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        @*<hr />*@
         <footer>
-            <p>&copy; @DateTime.Now.Year - Gruppen med 3 deltagare</p>
+            <p>&copy; @DateTime.Now.Year - Group of 3</p>
         </footer>
     </div>
 

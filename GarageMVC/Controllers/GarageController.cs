@@ -38,11 +38,29 @@ namespace GarageMVC.Controllers
 
         // POST: Garage/Create
         [HttpPost]
-        public ActionResult Create(Models.Vehicle vehicle)
+        public ActionResult Create(Models.Vehicle vehicle, string vehicleType)
         {
+            switch(vehicleType)
+            { 
+                case "Car":
+                    vehicle.Type = VehicleType.Car;
+                    break;
+                case "MC":
+                    vehicle.Type = VehicleType.Mc;
+                    break;
+                case "Bus":
+                    vehicle.Type = VehicleType.Bus;
+                    break;
+                case "Truck":
+                    vehicle.Type = VehicleType.Truck;
+                    break;
+                default :
+                    return RedirectToAction("Index");
+            }
+
             garage.Add(vehicle);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
 
         // GET: Garage/Edit/5
