@@ -33,30 +33,31 @@ namespace GarageMVC.Controllers
 
         [HttpPost]
         //public ActionResult Index(string Sort = "", string Filter = "")
-                    public ActionResult Index(string Sort = "", string Filter = "")
+        public ActionResult Index(string Sort = "", string Filter = "")
         {
-            if (Filter == "Car" || Filter == "Bus" || Filter == "Truck" || Filter == "Mc")
-            {
-                return View(garage.GetFilteredList(Filter));
-            }
-            Sort = Sort.ToLower();
-            if (Sort == "regnumber")
-            {
-                return View(garage.SortReg(false));
-            }
-            else if(Sort=="owner")
-            {
-                return View(garage.SortOwner(false));
-            }
-            else if (Sort == "type")
-            {
-                return View(garage.SortType(false));
-            }
-            else if (Sort == "parkingplace")
-            {
-                return View(garage.SortParking(false));
-            }
-            return RedirectToAction("Index");
+            return View(garage.GetFilteredList(Filter));
+            //if (Filter == "Car" || Filter == "Bus" || Filter == "Truck" || Filter == "Mc")
+            //{
+            //    return View(garage.GetFilteredList(Filter));
+            //}
+            //Sort = Sort.ToLower();
+            //if (Sort == "regnumber")
+            //{
+            //    return View(garage.SortReg(false));
+            //}
+            //else if(Sort=="owner")
+            //{
+            //    return View(garage.SortOwner(false));
+            //}
+            //else if (Sort == "type")
+            //{
+            //    return View(garage.SortType(false));
+            //}
+            //else if (Sort == "parkingplace")
+            //{
+            //    return View(garage.SortParking(false));
+            //}
+            //return RedirectToAction("Index");
         }
 
         // GET: Garage/Details/5

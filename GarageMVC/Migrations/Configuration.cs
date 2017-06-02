@@ -42,7 +42,7 @@ namespace GarageMVC.Migrations
                 },
                 new Vehicle
                 {
-                    Owner = "Albert Einstine",
+                    Owner = "Albert Einstein",
                     RegNumber = "FBI132",
                     ParkingPrice = 3.5M,
                     ParkingPlace = 4,
