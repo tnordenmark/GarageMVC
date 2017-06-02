@@ -126,15 +126,17 @@ namespace GarageMVC.Controllers
         // GET: Garage/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(garage.Remove(id));
+            return View(garage.GetVehicle(id));
         }
 
 
         // POST: Garage/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id)
-        //{
-            
-        //}
+        [HttpPost]
+        public ActionResult Delete(Vehicle vehicle)
+        {
+            //garage.Remove(vehicle);
+
+            return RedirectToAction("Index");
+        }
     }
 }
