@@ -7,39 +7,47 @@
 <h2>Vehicle List</h2>
 <p>search</p>
 <div>
-    <form class="glyphicon glyphicon-search" method="get">
-        <input type="text" name="Search" placeholder="Search" />
-        <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
-    </form>
+<form class="glyphicon glyphicon-search" method="get">
+    <input type="text" name="Search" placeholder="Search" />
+    <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
+</form>
 </div>
 <p>
     @*@Html.ActionLink("Check in Vehicle", "Create")*@
 </p>
 <div >
     <form>
-        <select name="Filter">
-            <option value="" selected>None</option>
-            <option value="Car">Car</option>
-            <option value="Bus">Bus</option>
-            <option value="Truck">Truck</option>
-            <option value="Mc">Mc</option>
-        </select>
-        <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Filter" />
-    </form>
+    <select name="Filter">
+        <option value="" selected>None</option>
+        <option value="Car">Car</option>
+        <option value="Bus">Bus</option>
+        <option value="Truck">Truck</option>
+        <option value="Mc">Mc</option>
+    </select>
+    <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Filter" />
+</form>
 </div>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RegNumber)
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" />
+            </form>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Owner)
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" />
+            </form>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" />
+            </form>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ParkingPlace)
+            <form>
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" />
+            </form>
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.ParkingPrice)
