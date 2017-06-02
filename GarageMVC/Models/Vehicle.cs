@@ -76,9 +76,9 @@ namespace GarageMVC.Models
 
     public enum VehicleType
     {
+        Bus,
         Car,
         Mc,
-        Bus,
         Truck
     }
 }
