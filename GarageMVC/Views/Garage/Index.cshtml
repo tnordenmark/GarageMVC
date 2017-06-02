@@ -1,4 +1,5 @@
-﻿@model IEnumerable<GarageMVC.Models.Vehicle>
+﻿ 
+@model IEnumerable<GarageMVC.Models.Vehicle>
 
 @{
     ViewBag.Title = "Search";
@@ -7,10 +8,10 @@
 <h2>Vehicle List</h2>
 <p>search</p>
 <div>
-<form class="glyphicon glyphicon-search" method="get">
-    <input type="text" name="Search" placeholder="Search" />
-    <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
-</form>
+    <form class="glyphicon glyphicon-search" method="get" action="~/">
+        <input type="text" name="Search" placeholder="Search" />
+        <input name="Search" class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
+    </form>
 </div>
 <p>
     @*@Html.ActionLink("Check in Vehicle", "Create")*@
@@ -24,7 +25,7 @@
         <option value="Truck">Truck</option>
         <option value="Mc">Mc</option>
     </select>
-    <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Filter" />
+    <input name="Filter"class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" />
 </form>
 </div>
 <table class="table">
@@ -52,6 +53,7 @@
         <th>
                 @*@Html.DisplayNameFor(model => model.RegNumber)*@
                 @Html.ActionLink("RegNumber", "Index", new { sortOrder = ViewBag.RegSortParm })
+                    <span class="glyphicon glyphicon-chevron-down"></span>
         </th>
         <th>
                 @*@Html.DisplayNameFor(model => model.Owner)*@

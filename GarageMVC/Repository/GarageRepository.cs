@@ -62,31 +62,36 @@ namespace GarageMVC.Repository
         {
             return db.Vehicles.ToList();
         }
+
+
         public Models.Vehicle GetVehicle(string regNr)
         {
             return db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
         }
+
         public Models.Vehicle GetVehicle(int id)
         {
             return db.Vehicles.Where(v => v.ID == id).FirstOrDefault();
         }
+
         //GET filtered vehicle list
-        public List<Vehicle> GetFilteredList(string type)
+        public List<Vehicle> GetFilteredList(string Type)
         {
-            if(type=="Car")
+            if(Type=="Car")
             {
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Car).ToList();
             }
-            else if(type=="Bus")
+            else if(Type=="Bus")
             {
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Bus).ToList();
             }
-            else if(type=="Mc")
+            else if(Type=="Mc")
             {
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Mc).ToList();
             }
             return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Truck).ToList();
         }
+
         //GET Sorted Lists
         public List<Vehicle> SortParking(bool descend)
         {
@@ -96,6 +101,7 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.OrderBy(v=>v.ParkingPlace).ToList();
         }
+
         public List<Vehicle> SortOwner(bool descend)
         {
             if (descend)
@@ -104,6 +110,7 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.OrderBy(v => v.Owner).ToList();
         }
+
         public List<Vehicle> SortDate(bool descend)
         {
             if (descend)
@@ -112,6 +119,7 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.OrderBy(v => v.ParkingDate).ToList();
         }
+
         public List<Vehicle> SortReg(bool descend)
         {
             if (descend)
@@ -120,6 +128,7 @@ namespace GarageMVC.Repository
             }
             return db.Vehicles.OrderBy(v => v.RegNumber).ToList();
         }
+
         public List<Vehicle> SortType(bool descend)
         {
             if (descend)
@@ -129,6 +138,7 @@ namespace GarageMVC.Repository
             return db.Vehicles.OrderBy(v => v.Type).ToList();
         }
         #endregion
+
         //Edit a vehicle
         public void Edit(Models.Vehicle vehicle)
         {
@@ -137,6 +147,7 @@ namespace GarageMVC.Repository
             //Saves the new Data in the Database
             db.SaveChanges();
         }
+
         //Updates the parking prices for each vehicle
         public void UpdateParkPrice()
         {
@@ -153,6 +164,7 @@ namespace GarageMVC.Repository
             }
             db.SaveChanges();
         }
+
         //Remove vehicle from database and return vehicle information
         public Models.Vehicle Remove(int id)
         {
@@ -174,6 +186,7 @@ namespace GarageMVC.Repository
             }
             return vehicle;
         }
+
         public Models.Vehicle Remove(string regNr)
         {
             Models.Vehicle vehicle;
@@ -195,6 +208,7 @@ namespace GarageMVC.Repository
             }
             return vehicle;
         }
+
         //Search vehicle(s)
         public List<Models.Vehicle> Search(string searchTerm)
         {
