@@ -13,7 +13,7 @@ namespace GarageMVC.Controllers
         GarageRepository garage = new GarageRepository();
         // GET: Garage
         [HttpGet]
-        public ActionResult Index(string Search="",string Sort="")
+        public ActionResult Index(string Search="")
         {
             return View(garage.Search(Search));
         }
