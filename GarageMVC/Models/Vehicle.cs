@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GarageMVC.Models
 {
@@ -8,17 +9,24 @@ namespace GarageMVC.Models
 
         #region Properties
         [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { set; get; }
+        public DateTime ParkingDate { set; get; }
+        public int ParkingPlace { set; get; }
+        public decimal ParkingPrice { set; get; }
+
         [Required]
         [StringLength(6)]
         public string RegNumber { set; get; }
-        public string Owner { set; get; }
+        
         [Required]
         public VehicleType Type { set; get; }
-        public int ParkingPlace { set; get; }
-        public decimal ParkingPrice { set; get; }
-        public DateTime ParkingDate { set; get; }
-        #endregion
+        
+        [Required]
+        public string Owner { set; get; }
+
+
+                #endregion
 
         #region Constructor
 
@@ -68,9 +76,9 @@ namespace GarageMVC.Models
 
     public enum VehicleType
     {
+        Bus,
         Car,
         Mc,
-        Bus,
         Truck
     }
 }

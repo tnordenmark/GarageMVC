@@ -1,0 +1,141 @@
+﻿body {
+    background-color: lightgreen;
+    margin: 0;
+    padding:0;
+}
+
+.form-horizontal{
+        margin-left: 28%;
+}
+    
+
+input[type="submit"]{
+    width: 100%;
+    width: 80px;
+    background-color: darkslategrey;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30%;
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: green;
+}
+
+
+.my_container{
+    margin-top: 6%;
+    margin-left: 40%;
+    margin-bottom:3%;
+}
+
+.my_offset{
+        margin-left: 15%;
+            /*margin-left: 16.666666666666664%;*/
+}
+
+
+#GarMenu {
+    height: 20px;
+    width: 80px;
+    background-color: darkslategrey;
+    display: inline-block;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 30%;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#Caption {
+    margin-top: 10%;
+}
+
+#Vehicle {
+    height: 20px;
+    width: 80px;
+    background-color: darkslategrey;
+    display: inline-block;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+
+#efg {
+    color: white;
+    background-color: darkslategrey;
+    border: none;
+    padding: 20px;
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 4%;
+    border-radius: 30%;
+}
+
+#efg:hover {
+        background-color: green;
+    }
+
+button:hover {
+    background-color: green;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+#typemenu{
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em;
+    text-align:center;
+}
+
+#mmm {
+    display:block;
+    width:50%;
+    text-align:center;
+}
+
+#abcd {
+    margin-left: 25%;
+    float: left;
+    width: 60%;
+    height 10%;
+    padding: 0;
+}
+
+#Type {
+    padding: 5%;
+    float: left;
+    margin-top: -3%;
+    text-align: center;
+}
+
+#ALLVehicles {
+    float:left;
+    padding: 5%;
+}
+#DatePark {
+    float:left;
+    padding: 5%;
+}
+
+select {
+    padding:5px;
+    background-color: darkslategrey;
+    color: white;
+}
+
+

@@ -47,7 +47,7 @@ namespace GarageMVC.Migrations
                     ParkingPrice = 3.5M,
                     ParkingPlace = 4,
                     Type = VehicleType.Truck
-                }                
+                }
             );
         }
     }

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<GarageMVC.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Vehicle List</h2>
+<p>search</p>
+<div>
+<form class="glyphicon glyphicon-search" method="get">
+    <input type="text" name="Search" placeholder="Search" />
+    <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
+</form>
+</div>
+<p>
+    @*@Html.ActionLink("Check in Vehicle", "Create")*@
+</p>
+<div >
+    <form>
+    <select name="Filter">
+        <option value="" selected>None</option>
+        <option value="Car">Car</option>
+        <option value="Bus">Bus</option>
+        <option value="Truck">Truck</option>
+        <option value="Mc">Mc</option>
+    </select>
+    <input class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Filter" />
+</form>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" />
+            </form>
+        </th>
+        <th>
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" />
+            </form>
+        </th>
+        <th>
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" />
+            </form>
+        </th>
+        <th>
+            <form>
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" />
+            </form>
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ParkingPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParkingDate)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingPlace)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ParkingPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingDate)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("CheckOut", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

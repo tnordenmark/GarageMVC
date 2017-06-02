@@ -12,12 +12,12 @@ namespace GarageMVC.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        RegNumber = c.String(nullable: false, maxLength: 6),
-                        Owner = c.String(),
-                        Type = c.Int(nullable: false),
+                        ParkingDate = c.DateTime(nullable: true),
                         ParkingPlace = c.Int(nullable: false),
                         ParkingPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        ParkingDate = c.DateTime(nullable: false),
+                        RegNumber = c.String(nullable: false, maxLength: 6),
+                        Type = c.Int(nullable: false),
+                        Owner = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
