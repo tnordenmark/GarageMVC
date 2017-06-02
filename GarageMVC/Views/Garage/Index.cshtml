@@ -29,7 +29,7 @@
 </div>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             <form method="post">
                 <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" />
             </form>
@@ -48,6 +48,22 @@
             <form>
                 <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" />
             </form>
+        </th>*@
+        <th>
+                @*@Html.DisplayNameFor(model => model.RegNumber)*@
+                @Html.ActionLink("RegNumber", "Index", new { sortOrder = ViewBag.RegSortParm })
+        </th>
+        <th>
+                @*@Html.DisplayNameFor(model => model.Owner)*@
+                @Html.ActionLink("Owner", "Index", new { sortOrder = ViewBag.OwnerSortParm })
+        </th>
+        <th>
+                @*@Html.DisplayNameFor(model => model.Type)*@
+                @Html.ActionLink("Type", "Index", new { sortOrder = ViewBag.TypeSortParm })
+        </th>
+        <th>
+                @*@Html.DisplayNameFor(model => model.ParkingPlace)*@
+                @Html.ActionLink("ParkingPlace", "Index", new { sortOrder = ViewBag.PlaceSortParm })
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.ParkingPrice)
