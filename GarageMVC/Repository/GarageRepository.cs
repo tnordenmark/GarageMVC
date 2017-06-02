@@ -140,18 +140,39 @@ namespace GarageMVC.Repository
         //Updates the parking prices for each vehicle
         public void UpdateParkPrice()
         {
-            foreach(var vehicle in db.Vehicles)
+            foreach(var v in db.Vehicles)
             {
                 //reset the parkingPrice to it's default values
-                if (vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                else if (vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                else if (vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
-                else { vehicle.ParkingPrice = 3.50M; }
+                Vehicle vehicle = SetDefaultPrice(v);
                 //Calculate the timespan and than update the cost
                 System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
                 vehicle.ParkingPrice = vehicle.ParkingPrice * (System.Convert.ToDecimal(tspan.TotalMinutes));
             }
             db.SaveChanges();
+        }
+        // Updates price for a specific vehicle
+        public void UpdateVehiclePrice(int id)
+        {
+            foreach(var v in db.Vehicles)
+            {
+                //reset the parkingPrice to it's default values
+                Vehicle vehicle = SetDefaultPrice(v);
+
+                System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
+                vehicle.ParkingPrice = vehicle.ParkingPrice * (System.Convert.ToDecimal(tspan.TotalMinutes));
+            }
+            db.SaveChanges();
+        }
+        // Set default price of vehicle
+        private Vehicle SetDefaultPrice(Vehicle vehicle)
+        {
+            //reset the parkingPrice to it's default values
+            if(vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
+            else if(vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
+            else if(vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
+            else { vehicle.ParkingPrice = 3.50M; }
+
+            return vehicle;
         }
         //Remove vehicle from database and return vehicle information
         public Models.Vehicle Remove(int id)
