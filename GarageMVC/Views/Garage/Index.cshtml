@@ -8,7 +8,7 @@
 <h2>Vehicle List</h2>
 <p>search</p>
 <div>
-    <form class="glyphicon glyphicon-search" method="get" action="~/">
+    <form class="glyphicon glyphicon-search" method="get">
         <input type="text" name="Search" placeholder="Search" />
         <input name="Search" class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
     </form>
@@ -17,7 +17,7 @@
     @*@Html.ActionLink("Check in Vehicle", "Create")*@
 </p>
 <div >
-    <form>
+    <form method="post">
     <select name="Filter">
         <option value="" selected>None</option>
         <option value="Car">Car</option>

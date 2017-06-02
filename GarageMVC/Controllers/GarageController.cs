@@ -12,23 +12,33 @@ namespace GarageMVC.Controllers
     {
         GarageRepository garage = new GarageRepository();
 
-        // GET: Garage
+         //GET: Garage
         //[HttpGet]
         //public ActionResult Index(string Search="")
         //{
         //    return View(garage.Search(Search));
         //}
 
-        
-        public ActionResult Index(string sortOrder)
+        [HttpGet]
+        public ActionResult Index(string sortOrder, string Search="", string Filter="")
         {
-            ViewBag.RegSortParm = sortOrder == "RegNumber" ? "RegNumber_asc" : "RegNumber";
-            ViewBag.OwnerSortParm = String.IsNullOrEmpty(sortOrder) ? "Owner_asc" : "";
-            ViewBag.TypeSortParm = sortOrder == "Type" ? "type_asc" : "Type";
-            ViewBag.PlaceSortParm = sortOrder == "ParkingPlace" ? "ParkingPlace_asc" : "ParkingPlace";
 
-            var result = garage.SortItem(sortOrder);
-            return View(result);
+            if (Search != null) 
+            { 
+                return View(garage.Search(Search));
+            }
+            else if ( Filter != null) 
+            {
+                return View(garage.GetFilteredList(Filter));
+            }
+            else
+                ViewBag.RegSortParm = sortOrder == "RegNumber" ? "RegNumber_asc" : "RegNumber";
+                ViewBag.OwnerSortParm = String.IsNullOrEmpty(sortOrder) ? "Owner_asc" : "";
+                ViewBag.TypeSortParm = sortOrder == "Type" ? "type_asc" : "Type";
+                ViewBag.PlaceSortParm = sortOrder == "ParkingPlace" ? "ParkingPlace_asc" : "ParkingPlace";
+
+                var result = garage.SortItem(sortOrder);
+                return View(result);
         }
 
         [HttpPost]
