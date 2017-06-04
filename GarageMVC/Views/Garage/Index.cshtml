@@ -5,74 +5,57 @@
     ViewBag.Title = "Search";
 }
 
-<h2>Vehicle List</h2>
-<p>search</p>
-<div>
-    <form class="glyphicon glyphicon-search" method="get">
-        <input type="text" name="Search" placeholder="Search" />
-        <input name="Search" class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" value="Search" />
-    </form>
-</div>
-<p>
-    @*@Html.ActionLink("Check in Vehicle", "Create")*@
-</p>
-<div >
-    <form method="post">
-    <select name="Filter">
-        <option value="" selected>None</option>
-        <option value="Car">Car</option>
-        <option value="Bus">Bus</option>
-        <option value="Truck">Truck</option>
-        <option value="Mc">Mc</option>
-    </select>
-    <input name="Filter"class="btn btn-primary" id="submit" type="submit" style="font-weight:bold;" />
-</form>
+@*<h>Vehicle List</h>*@
+@*<p>search</p>*@
+<div class="Index_Menu">
+    <div class="left">
+        <form class="glyphicon glyphicon-search" method="get">
+            <input type="text" name="Search" placeholder="Free Search" />
+            <input name="vehicleType_Long" class="btn btn-primary" type="submit" value="Search" />
+        </form>
+    </div>
+    <div class="center" >
+        <form method="post">
+            <select name="Filter">
+                <option value="" selected>Search type</option>
+                <option value="Car">Car</option>
+                <option value="Bus">Bus</option>
+                <option value="Truck">Truck</option>
+                <option value="Mc">Mc</option>
+            </select>
+            <input name="vehicleType_Long" class="btn btn-default" type="submit" value="Filter" />
+        </form>
+    </div>
+    <div class="right">
+        <input name="vehicleType_Long" type="submit" value="Revert" onclick="location.href='@Url.Action("Index", "Garage")'" />
+    </div>
+    <p></p>
 </div>
 <table class="table">
     <tr>
-        @*<th>
-            <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" />
-            </form>
-        </th>
         <th>
             <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" />
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" id="submit" />
             </form>
         </th>
         <th>
             <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" />
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" id="submit" />
             </form>
         </th>
         <th>
-            <form>
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" />
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" id="submit" />
             </form>
-        </th>*@
-        <th>
-                @*@Html.DisplayNameFor(model => model.RegNumber)*@
-                @Html.ActionLink("RegNumber", "Index", new { sortOrder = ViewBag.RegSortParm })
-                    <span class="glyphicon glyphicon-chevron-down"></span>
         </th>
         <th>
-                @*@Html.DisplayNameFor(model => model.Owner)*@
-                @Html.ActionLink("Owner", "Index", new { sortOrder = ViewBag.OwnerSortParm })
+            <form method ="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" id="submit" />
+            </form>
         </th>
-        <th>
-                @*@Html.DisplayNameFor(model => model.Type)*@
-                @Html.ActionLink("Type", "Index", new { sortOrder = ViewBag.TypeSortParm })
-        </th>
-        <th>
-                @*@Html.DisplayNameFor(model => model.ParkingPlace)*@
-                @Html.ActionLink("ParkingPlace", "Index", new { sortOrder = ViewBag.PlaceSortParm })
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.ParkingPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkingDate)
-        </th>*@
+ 
+
+
         <th></th>
     </tr>
 
@@ -90,16 +73,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.ParkingPlace)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.ParkingPrice)
-        </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.ParkingDate)
-        </td>*@
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |*@
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("CheckOut", "Delete", new { id=item.ID })
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "ActionLink" }) |
+            @Html.ActionLink("CheckOut", "Delete", new { id = item.ID }, new { @class = "ActionLink" })
         </td>
     </tr>
 }

@@ -57,6 +57,7 @@ namespace GarageMVC.Repository
             return exists;
         }
         #region Get Vehicle(s)
+
         //GET all vehicles from database
         public List<Vehicle> GetAll()
         {
@@ -89,7 +90,8 @@ namespace GarageMVC.Repository
             {
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Mc).ToList();
             }
-            return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Truck).ToList();
+            else
+                return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Truck).ToList();
         }
 
         //GET Sorted Lists
@@ -99,7 +101,7 @@ namespace GarageMVC.Repository
             {
                 return db.Vehicles.OrderByDescending(v => v.ParkingPlace).ToList();
             }
-            return db.Vehicles.OrderBy(v=>v.ParkingPlace).ToList();
+            return db.Vehicles.OrderBy(v => v.ParkingPlace).ToList();
         }
 
         public List<Vehicle> SortOwner(bool descend)
@@ -227,31 +229,30 @@ namespace GarageMVC.Repository
             return db.Vehicles.Where(vehicle => vehicle.ParkingPlace == pSlot).ToList();
         }
 
-        public IEnumerable<Vehicle> SortItem(string sortOrder)
-        {
-            var sortItem = from i in db.Vehicles
-                           select i;
+        //public IEnumerable<Vehicle> SortVehicle(string sortOrder)
+        //{
+        //    var SortVehicle = from v in db.Vehicles
+        //                   select v;
 
-            switch (sortOrder)
-            {
-                case "RegNumber":
-                    sortItem = sortItem.OrderBy(i => i.RegNumber);
-                    break;
-                case "Owner":
-                    sortItem = sortItem.OrderBy(i => i.Owner);
-                    break;
-                case "Type":
-                    sortItem = sortItem.OrderBy(i => i.Type);
-                    break;
-                case "ParkingPlace":
-                    sortItem = sortItem.OrderBy(i => i.ParkingPlace);
-                    break;
-                default:
-                    sortItem = sortItem.OrderBy(i => i.RegNumber);
-                    break;
-            }
-
-            return sortItem.ToList();
-        }
+        //    switch (sortOrder)
+        //    {
+        //        case "RegNumber":
+        //            SortVehicle = SortVehicle.OrderBy(v => v.RegNumber);
+        //            break;
+        //        case "Owner":
+        //            SortVehicle = SortVehicle.OrderBy(v => v.Owner);
+        //            break;
+        //        case "Type":
+        //            SortVehicle = SortVehicle.OrderBy(v => v.Type);
+        //            break;
+        //        case "ParkingPlace":
+        //            SortVehicle = SortVehicle.OrderBy(v => v.ParkingPlace);
+        //            break;
+        //        default:
+        //            SortVehicle = SortVehicle.OrderBy(v => v.RegNumber);
+        //            break;
+        //    }
+        //    return SortVehicle.ToList();
+        //}
    }
 }

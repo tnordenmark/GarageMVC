@@ -1,9 +1,9 @@
 ﻿@model GarageMVC.Models.Vehicle
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Do you want to check out this vehicle?</h3>
 <div>
-    <h4>Vehicle</h4>
-    <hr />
+    @*<h4>Vehicle</h4>
+    <hr />*@
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ParkingDate)
@@ -59,8 +59,10 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Payment" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input name="vehicleType_Long" type="submit" value="Payment" class="btn btn-warning" /> 
+            @*@Html.ActionLink("Cancel", "Index", new { @class = "btn btn-default"})*@
+            <input name="vehicleType_Long" type="button" class="btn btn-warning" value="Cancel" onclick="location.href='@Url.Action("Index", "Garage")'" />
+
         </div>
     }
 </div>

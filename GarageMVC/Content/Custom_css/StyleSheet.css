@@ -8,7 +8,6 @@
         margin-left: 28%;
 }
     
-
 input[name="vehicleType"]{
     width: 100%;
     width: 80px;
@@ -17,12 +16,33 @@ input[name="vehicleType"]{
     text-align: center;
     border-radius: 30%;
     color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input[name="vehicleType_Long"]{
+    width: 100%;
+    width: 100px;
+    background-color: darkslategrey;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30%;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border:none;
 }
 
 input[name="vehicleType"]:hover {
-    background-color: green;
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+input[name="vehicleType_Long"]:hover {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
 
 .my_container{
     margin-top: 6%;
@@ -32,10 +52,53 @@ input[name="vehicleType"]:hover {
 
 .my_offset{
         margin-left: 15%;
-            /*margin-left: 16.666666666666664%;*/
+        /*margin-left: 16.666666666666664%;*/
+}
+
+.Index_Menu{
+    width:100%;
+    text-align:center;
 }
 
 
+input#submit{
+  background:none;
+  border:none;
+  font-size:1em;
+  color:black;
+  font-weight: bold;
+}
+a:link#submit{
+    color:black;
+}
+
+a:active#submit{
+    color:black;
+}
+
+a:visited#submit{
+    color:black;
+}
+
+.left{
+    float:left;
+    width:300px;
+}
+
+.center{
+        display: inline-block;
+    margin:0 auto;
+    width:230px;
+}
+
+.right{
+        float:right;
+    width:100px;
+}
+
+.ActionLink{
+    color: darkblue;
+}
 #GarMenu {
     height: 20px;
     width: 80px;
@@ -47,7 +110,6 @@ input[name="vehicleType"]:hover {
     margin-top: 5px;
     border-radius: 30%;
 }
-
 
 a {
     color: white;
@@ -68,7 +130,6 @@ a {
     text-align: center;
     margin-top: 3px;
 }
-
 
 #efg {
     color: white;
