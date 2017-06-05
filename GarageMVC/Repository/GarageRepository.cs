@@ -225,6 +225,7 @@ namespace GarageMVC.Repository
             }
             catch
             {
+                searchTerm = searchTerm.ToUpper();
                 return db.Vehicles.Where(vehicle => vehicle.Owner.Contains(searchTerm) || vehicle.RegNumber == searchTerm).ToList();
             }
             return db.Vehicles.Where(vehicle => vehicle.ParkingPlace == pSlot).ToList();
