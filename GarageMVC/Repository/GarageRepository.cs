@@ -20,47 +20,40 @@ namespace GarageMVC.Repository
         public bool Add(Models.Vehicle vehicle)
         {
             bool exists = false;
-            vehicle.RegNumber = vehicle.RegNumber.ToUpper();
             if (vehicle != null)
             {
+                vehicle.RegNumber = vehicle.RegNumber.ToUpper();
+                bool Once = true;
                 int index = 1;
-                bool runOnce = true;
 
-                foreach (var v in db.Vehicles)
+                foreach (var v in db.Vehicles.OrderBy(v=>v.ParkingPlace))
                 {
+                    //If Vehicle Exists
                     if (v.RegNumber == vehicle.RegNumber)
                     {
                         exists = true;
+                        break;
                     }
-                }
-
-                if (exists == false)
-                {
-                    foreach (var v in SortParking(false))
-                    {
-                        if (index != v.ParkingPlace && runOnce == true)
-                        {
-                            vehicle.ParkingPlace = index;
-                            runOnce = false;
-                        }
-                        index++;
-                    }
-
-                    if (vehicle.ParkingPlace == 0)
+                    //Set the parking place for the vehicle to the empty parking slot
+                    if (index != v.ParkingPlace && Once == true)
                     {
                         vehicle.ParkingPlace = index;
+                        Once = false;
+                        break;
                     }
-
-                    if (vehicle.Type == Models.VehicleType.Car) { vehicle.ParkingPrice = 1; }
-                    else if (vehicle.Type == Models.VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-                    else if (vehicle.Type == Models.VehicleType.Truck) { vehicle.ParkingPrice = 3.5M; }
-                    else if (vehicle.Type == Models.VehicleType.Bus) { vehicle.ParkingPrice = 2.5M; }
+                    index++;
+                }
+                //If the Vehicle doesn't exist in the database, add it to the db
+                if (exists == false)
+                {
+                    if (vehicle.ParkingPlace == 0) { vehicle.ParkingPlace = index; }
+                    
+                    vehicle = SetDefaultPrice(vehicle);
 
                     db.Entry(vehicle).State = EntityState.Added;
                     db.SaveChanges();
                 }
             }
-
             return exists;
         }
         #region Get Vehicle(s)
@@ -163,15 +156,11 @@ namespace GarageMVC.Repository
         // Updates price for a specific vehicle
         public void UpdateVehiclePrice(int id)
         {
-            foreach(var v in db.Vehicles)
-            {
-                //reset the parkingPrice to it's default values
-                Vehicle vehicle = SetDefaultPrice(v);
-
-                System.TimeSpan tspan = System.DateTime.Now - vehicle.ParkingDate;
-                vehicle.ParkingPrice = vehicle.ParkingPrice * (System.Convert.ToDecimal(tspan.TotalMinutes));
-            }
-            db.SaveChanges();
+            Vehicle veh = db.Vehicles.Where(v=>v.ID==id).FirstOrDefault();
+            veh = SetDefaultPrice(veh);
+                System.TimeSpan tspan = System.DateTime.Now - veh.ParkingDate;
+                veh.ParkingPrice = veh.ParkingPrice * (System.Convert.ToDecimal(tspan.TotalMinutes));
+                Edit(veh);
         }
         // Set default price of vehicle
         private Vehicle SetDefaultPrice(Vehicle vehicle)
