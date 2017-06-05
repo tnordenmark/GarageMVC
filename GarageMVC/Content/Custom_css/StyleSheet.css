@@ -20,7 +20,7 @@ input[name="vehicleType"]{
 }
 
 input[name="vehicleType_Long"]{
-    width: 100%;
+    /*width: 100%;*/
     width: 100px;
     background-color: darkslategrey;
     padding: 20px;
@@ -111,6 +111,14 @@ a:visited#submit{
 .ActionLink{
     color: darkblue;
 }
+
+/*.glyphicon {
+    font-size: 25px;
+}*/
+
+
+
+
 #GarMenu {
     height: 20px;
     width: 80px;
