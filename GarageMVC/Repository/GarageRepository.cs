@@ -39,6 +39,7 @@ namespace GarageMVC.Repository
                     {
                         vehicle.ParkingPlace = index;
                         Once = false;
+                        break;
                     }
                     index++;
                 }
