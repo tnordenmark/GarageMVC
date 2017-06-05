@@ -56,6 +56,12 @@ input[name="vehicleType_Long"]:hover {
     font-weight: bold;
 }
 
+#vehicleType_Long:hover {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
 .my_container{
     margin-top: 6%;
     margin-left: 40%;
