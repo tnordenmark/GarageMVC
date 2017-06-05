@@ -31,6 +31,18 @@ input[name="vehicleType_Long"]{
     border:none;
 }
 
+#vehicleType_Long{
+    width: 100%;
+    width: 100px;
+    background-color: darkslategrey;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30%;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border:none;
+}
+
 input[name="vehicleType"]:hover {
     background-color: yellow;
     color: black;
