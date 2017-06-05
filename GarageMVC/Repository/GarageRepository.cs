@@ -20,7 +20,7 @@ namespace GarageMVC.Repository
         public bool Add(Models.Vehicle vehicle)
         {
             bool exists = false;
-            
+            vehicle.RegNumber = vehicle.RegNumber.ToUpper();
             if (vehicle != null)
             {
                 int index = 1;
