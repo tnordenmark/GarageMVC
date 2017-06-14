@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using GarageMVC.Repository;
 using GarageMVC.Models;
 
@@ -50,11 +46,15 @@ namespace GarageMVC.Controllers
 
 
         // GET: Garage/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id=0)
         {
-            //Update the ParkPrice to current price
-            garage.UpdateParkPrice();
-            return View(garage.GetVehicle(id));
+            if (id != 0)
+            {
+                //Update the ParkPrice to current price
+                garage.UpdateParkPrice();
+                return View(garage.GetVehicle(id));
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: Garage/Create
@@ -113,10 +113,14 @@ namespace GarageMVC.Controllers
         }
 
         // GET: Garage/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id=0)
         {
-            garage.UpdateVehiclePrice(id);
-            return View(garage.GetVehicle(id));
+            if (id != 0)
+            {
+                garage.UpdateVehiclePrice(id);
+                return View(garage.GetVehicle(id));
+            }
+            return RedirectToAction("Index");
         }
 
 

@@ -143,6 +143,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom_css\Menu.css" />
     <Content Include="Content\Images\2.png" />
+    <Content Include="Content\Images\2_1.png" />
     <Content Include="Content\Images\etwe.gif" />
     <Content Include="Content\Images\rwer.png" />
     <Content Include="Content\Custom_css\StyleSheet.css" />

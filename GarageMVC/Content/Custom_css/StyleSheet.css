@@ -20,6 +20,18 @@ input[name="vehicleType"]{
 }
 
 input[name="vehicleType_Long"]{
+    /*width: 100%;*/
+    width: 100px;
+    background-color: darkslategrey;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30%;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border:none;
+}
+
+#vehicleType_Long{
     width: 100%;
     width: 100px;
     background-color: darkslategrey;
@@ -39,6 +51,12 @@ input[name="vehicleType"]:hover {
 }
 
 input[name="vehicleType_Long"]:hover {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
+#vehicleType_Long:hover {
     background-color: yellow;
     color: black;
     font-weight: bold;
@@ -99,6 +117,14 @@ a:visited#submit{
 .ActionLink{
     color: darkblue;
 }
+
+/*.glyphicon {
+    font-size: 25px;
+}*/
+
+
+
+
 #GarMenu {
     height: 20px;
     width: 80px;
